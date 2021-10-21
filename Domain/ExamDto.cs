@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using System;
 
 namespace Domain
 {
-    public class Code
+    public class ExamDto
     {
-        public int CodeId { get; set; }
-        public string CodeName { get; set; }
-        public string CodeValue { get; set; }
+        public int ExamId { get; set; }
+        public string ClassId { get; set; }
+        public string StudentId { get; set; }
+        public string SubjectId { get; set; }
+        public int Marks { get; set; }
         public bool IsActive { get; set; }
         public bool IsDeleted { get; set; }
         public int CreatedUserId { get; set; }
