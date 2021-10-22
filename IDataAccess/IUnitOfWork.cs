@@ -1,10 +1,12 @@
 ﻿
+using System.Threading.Tasks;
+
 namespace IDataAccess
 {
     public interface IUnitOfWork
     {
         IStudentRepository StudentRepository();
-        void Save();
-        void Dispose();
+        Task SaveAsync();
+        ValueTask DisposeAsync();
     }
 }

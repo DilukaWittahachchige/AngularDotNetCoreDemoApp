@@ -5,6 +5,7 @@ using IDataAccess;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace BusinessServices
 {
@@ -28,21 +29,21 @@ namespace BusinessServices
         ///  Load All Active studnets info
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<StudentDto> LoadAllActive()
+        public async Task<IEnumerable<StudentDto>> LoadAllActiveAsync()
         {
             try
             {
                 // Filter active student records 
-                var roomList = new List<StudentDto>();
-                var data = this._unityOfWork.StudentRepository().Get()
-                               .ToList().Where(x => x.IsActive == true);
+                var studentList = new List<StudentDto>();
+                var data = await this._unityOfWork.StudentRepository().GetAsync();
+                var dataList = data.Where(x => x.IsActive == true).ToList();
 
-                data.ToList().ForEach(x =>
+                dataList.ForEach(x =>
                 {
-                    roomList.Add(ConvertToDomain(x));
+                    studentList.Add(ConvertToDomain(x));
                 });
 
-                return roomList;
+                return studentList;
             }
             catch (Exception ex)
             {

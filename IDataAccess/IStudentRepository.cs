@@ -1,5 +1,6 @@
 ﻿using EF.Models;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace IDataAccess
 {
@@ -8,6 +9,6 @@ namespace IDataAccess
     /// </summary>
     public interface IStudentRepository : IGenericRepository<Student>
     {
-        IEnumerable<Student> LoadAllByYear();
+        Task<IEnumerable<Student>> LoadAllByYearAsync();
     }
 }

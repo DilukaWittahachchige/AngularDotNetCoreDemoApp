@@ -2,10 +2,11 @@
 using IDataAccess;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Threading.Tasks;
 
 namespace DataAccess
 {
-    public class UnitOfWork : IDisposable, IUnitOfWork
+    public class UnitOfWork : IAsyncDisposable, IUnitOfWork
     {
         private MarkProcessingContext context = new MarkProcessingContext(new DbContextOptions<MarkProcessingContext>());
         private readonly IStudentRepository _studentRepository;
@@ -22,20 +23,20 @@ namespace DataAccess
             return this._studentRepository;
         }
 
-        public void Save()
+        public async Task SaveAsync()
         {
-            context.SaveChanges();
+            await context.SaveChangesAsync();
         }
 
         private bool disposed = false;
 
-        protected virtual void Dispose(bool disposing)
+        protected virtual async Task DisposeAsync(bool disposing)
         {
             if (!this.disposed)
             {
                 if (disposing)
                 {
-                    context.Dispose();
+                    await context.DisposeAsync();
                 }
             }
             this.disposed = true;
@@ -44,9 +45,9 @@ namespace DataAccess
         /// <summary>
         ///  Object management / Garbage collection 
         /// </summary>
-        public void Dispose()
+        public async ValueTask DisposeAsync()
         {
-            Dispose(true);
+            await DisposeAsync(true);
             GC.SuppressFinalize(this);
         }
     }

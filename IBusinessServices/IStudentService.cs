@@ -1,5 +1,6 @@
 ﻿using Domain;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace IBusinessServices
 {
@@ -12,6 +13,6 @@ namespace IBusinessServices
         ///  Load All Active student information 
         /// </summary>
         /// <returns></returns>
-        IEnumerable<StudentDto> LoadAllActive();
+        Task<IEnumerable<StudentDto>> LoadAllActiveAsync();
     }
 }

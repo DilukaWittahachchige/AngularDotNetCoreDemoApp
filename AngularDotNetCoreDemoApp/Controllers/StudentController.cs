@@ -4,6 +4,7 @@ using IBusinessServices;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -20,9 +21,10 @@ namespace AngularDotNetCoreDemoApp.Controllers
         }
 
         [HttpGet("all-available")]
-        public IEnumerable<StudentFrontendModel> LoadAllActive()
+        public async Task<IEnumerable<StudentFrontendModel>> LoadAllActiveAsync()
         {
-            return this.studentService.LoadAllActive().Select(x => ConvertToModel(x));
+            var activeStudentList = await this.studentService.LoadAllActiveAsync();
+            return activeStudentList.Select(x => ConvertToModel(x));
         }
 
         // GET: api/<StudentController>

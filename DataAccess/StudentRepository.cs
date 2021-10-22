@@ -5,6 +5,7 @@ using EF.Models;
 using IDataAccess;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 #endregion
 
 namespace DataAccess
@@ -28,7 +29,7 @@ namespace DataAccess
         ///  Return all active student information
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<Student> LoadAllByYear()
+        public async Task<IEnumerable<Student>> LoadAllByYearAsync()
         {
             throw new NotImplementedException();
         }
