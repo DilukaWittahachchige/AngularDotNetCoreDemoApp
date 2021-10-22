@@ -16,4 +16,11 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+    <ProjectReference Include="..\EF\EF.csproj" />
+    <ProjectReference Include="..\IBusinessServices\IBusinessServices.csproj" />
+    <ProjectReference Include="..\IDataAccess\IDataAccess.csproj" />
+  </ItemGroup>
+
 </Project>

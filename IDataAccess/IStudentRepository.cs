@@ -8,6 +8,6 @@ namespace IDataAccess
     /// </summary>
     public interface IStudentRepository : IGenericRepository<Student>
     {
-        IEnumerable<Student> LoadAllAvailable();
+        IEnumerable<Student> LoadAllByYear();
     }
 }

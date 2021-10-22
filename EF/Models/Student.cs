@@ -13,7 +13,7 @@ namespace EF.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int StudentId { get; set; }
         public string GivenName { get; set; }
-        public string SurnameName { get; set; }
+        public string Surname { get; set; }
         public string Gender { get; set; }
         public string StudentPhoneNumber { get; set; }
         public string StudentEmailAddress { get; set; }

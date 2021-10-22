@@ -28,7 +28,7 @@ namespace DataAccess
         ///  Return all active student information
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<Student> LoadAllAvailable()
+        public IEnumerable<Student> LoadAllByYear()
         {
             throw new NotImplementedException();
         }

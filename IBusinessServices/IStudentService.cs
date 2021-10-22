@@ -1,12 +1,17 @@
-﻿using System;
+﻿using Domain;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace IBusinessServices
 {
-    interface IStudentService
+    /// <summary>
+    ///   Student Service interface 
+    /// </summary>
+    public interface IStudentService
     {
+        /// <summary>
+        ///  Load All Active student information 
+        /// </summary>
+        /// <returns></returns>
+        IEnumerable<StudentDto> LoadAllActive();
     }
 }
