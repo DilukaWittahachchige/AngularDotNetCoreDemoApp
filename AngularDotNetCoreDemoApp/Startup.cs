@@ -1,3 +1,4 @@
+using DI;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -23,6 +24,8 @@ namespace AngularDotNetCoreDemoApp
         {
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddMicrosoftIdentityWebApi(Configuration.GetSection("AzureAd"));
+
+            services.AddServiceScribeCore();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
