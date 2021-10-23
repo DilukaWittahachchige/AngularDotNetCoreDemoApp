@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <Folder Include="Mapper\" />
+    <Folder Include="ServiceBus\" />
   </ItemGroup>
 
 </Project>
