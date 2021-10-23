@@ -22,6 +22,16 @@ namespace AngularDotNetCoreDemoApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy("EnableCORS", builder =>
+                {
+                    builder.AllowAnyOrigin()
+                       .AllowAnyHeader()
+                       .AllowAnyMethod();
+                });
+            });
+
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddMicrosoftIdentityWebApi(Configuration.GetSection("AzureAd"));
 
@@ -44,6 +54,7 @@ namespace AngularDotNetCoreDemoApp
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "AngularDotNetCoreDemoApp v1"));
             }
 
+            app.UseCors("EnableCORS");
             app.UseHttpsRedirection();
 
             app.UseRouting();
@@ -55,6 +66,7 @@ namespace AngularDotNetCoreDemoApp
             {
                 endpoints.MapControllers();
             });
+
         }
     }
 }

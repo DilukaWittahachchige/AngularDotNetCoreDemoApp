@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -12,7 +13,8 @@ import { StudentDashboardModule } from './student-dashboard/student-dashboard.mo
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StudentDashboardModule 
+    StudentDashboardModule,
+    HttpClientModule  
   ],
   providers: [],
   bootstrap: [AppComponent]

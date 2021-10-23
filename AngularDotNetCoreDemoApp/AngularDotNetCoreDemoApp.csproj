@@ -28,4 +28,8 @@
     <ProjectReference Include="..\IBusinessServices\IBusinessServices.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ClientApp\" />
+  </ItemGroup>
+
 </Project>
