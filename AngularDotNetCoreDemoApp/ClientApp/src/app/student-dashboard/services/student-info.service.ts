@@ -6,6 +6,7 @@ import { catchError } from "rxjs/operators";
 import { Observable } from "rxjs";
 import { ErrorService } from 'src/app/core/services/error.service';
 import { IStudentModel } from "../models/student.model";
+import { IStudentAgeCategoryModel } from '../models/student-category.model';
 
 @Injectable({
   providedIn: 'root',
@@ -25,6 +26,13 @@ export class StudentInfoService {
     this.errorService;
     return this.http
       .get<IStudentModel[]>(`${this.studentUrl}/all-available`)
+      .pipe(catchError(this.errorService.handleError));
+  }
+
+  getStudentAgeCategoryInfo(): Observable<IStudentAgeCategoryModel> {
+    this.errorService;
+    return this.http
+      .get<IStudentAgeCategoryModel>(`${this.studentUrl}/age-category`)
       .pipe(catchError(this.errorService.handleError));
   }
 
