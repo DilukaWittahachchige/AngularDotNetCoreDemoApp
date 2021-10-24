@@ -21,10 +21,21 @@ namespace AngularDotNetCoreDemoApp.Controllers
         }
 
         [HttpGet("all-available")]
-        public async Task<IEnumerable<StudentFrontendModel>> LoadAllActiveAsync()
+        public async Task<IEnumerable<StudentModel>> LoadAllActiveAsync()
         {
             var activeStudentList = await this.studentService.LoadAllActiveAsync();
             return activeStudentList.Select(x => ConvertToModel(x));
+        }
+
+        [HttpGet("age-category")]
+        public async Task<StudentAgeCategoryModel> LoadAgeCategoryInfoAsync()
+        {
+            var studentAgeCategoryInfo = await this.studentService.LoadAgeCategoryInfoAsync();
+            return new StudentAgeCategoryModel()
+            {
+                StudentAgeCategoryCount = studentAgeCategoryInfo.StudentAgeCategoryCount,
+                StudentAgeCategory = studentAgeCategoryInfo.StudentAgeCategory
+            };
         }
 
         // GET: api/<StudentController>
@@ -60,14 +71,14 @@ namespace AngularDotNetCoreDemoApp.Controllers
         }
 
         //TODO: Use auto mapper inside 
-        private static StudentFrontendModel ConvertToModel(StudentDto obj)
+        private static StudentModel ConvertToModel(StudentDto obj)
         {
             if (obj == null)
             {
-                return new StudentFrontendModel();
+                return new StudentModel();
             }
 
-            return new StudentFrontendModel()
+            return new StudentModel()
             {
                 StudentId = obj.StudentId,
                 GivenName = obj.GivenName,

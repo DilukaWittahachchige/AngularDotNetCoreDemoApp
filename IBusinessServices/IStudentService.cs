@@ -14,5 +14,11 @@ namespace IBusinessServices
         /// </summary>
         /// <returns></returns>
         Task<IEnumerable<StudentDto>> LoadAllActiveAsync();
+
+        /// <summary>
+        ///  Load studnet age category info
+        /// </summary>
+        /// <returns></returns>
+        Task<StudentAgeCategoryDto> LoadAgeCategoryInfoAsync();
     }
 }

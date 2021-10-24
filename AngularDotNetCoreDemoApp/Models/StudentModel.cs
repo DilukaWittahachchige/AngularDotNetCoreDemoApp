@@ -2,7 +2,7 @@
 
 namespace AngularDotNetCoreDemoApp.Models
 {
-    public class StudentFrontendModel
+    public class StudentModel
     {
         public int StudentId { get; set; }
         public string GivenName { get; set; }

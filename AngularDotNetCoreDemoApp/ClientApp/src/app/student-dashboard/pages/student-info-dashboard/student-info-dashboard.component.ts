@@ -15,8 +15,8 @@ export class StudentInfoDashboardComponent implements OnInit {
  public pieChartOptions: ChartOptions = {
   responsive: true,
 };
-pieChartLabels: Label[] = [['Download', 'Sales'], ['In', 'Store', 'Sales'], 'Mail Sales'];
-pieChartData: SingleDataSet = [300, 500, 100];
+pieChartLabels: Label[] = ['Download', ['In', 'Store', 'Sales'], 'Mail Sales'];
+pieChartData: SingleDataSet = [300, 800, 100];
 pieChartType: ChartType = 'pie';
 pieChartLegend = true;
 pieChartPlugins = [];
