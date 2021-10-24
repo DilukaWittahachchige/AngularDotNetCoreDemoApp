@@ -5,7 +5,19 @@
     </thead>
     <tbody>
         <tr *ngFor="let student of studentInfo">
+            <td>{{student.givenName}} {{student.surname}}</td>
             <td>{{student.studentDateOfBirth}}</td>
         </tr>
     </tbody>
+
+    <div style="display: block;">
+        <canvas baseChart 
+          [data]="pieChartData" 
+          [labels]="pieChartLabels" 
+          [chartType]="pieChartType"
+          [options]="pieChartOptions"
+          [plugins]="pieChartPlugins"
+          [legend]="pieChartLegend">
+        </canvas>
+      </div>
 </table>
